@@ -26,7 +26,7 @@ RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh &
 RUN echo "source $HOME/udacity/miniconda/bin/activate" >> ~/.bashrc
 RUN source ~/.bashrc
 
-RUN git clone https://github.com/udacity/CarND-Term1-Starter-Kit.git && \
+RUN git clone https://github.com/udacity/CarND-Term1-Starter-Kit.git
 RUN cd CarND-Term1-Starter-Kit
 
 # Make copy of 'environment.yml'
