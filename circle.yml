@@ -1,0 +1,20 @@
+version: 2
+jobs:
+    build:
+        machine: true
+        steps:
+            - checkout
+            - run: |
+                docker info
+                if [[ -e ~/docker/image.tar ]]; then docker load --input ~/docker/image.tar; fi
+                docker build --rm=false -t jonathanschmalhofer/udacitydeeplearning:latest .
+                mkdir -p ~/docker; docker save jonathanschmalhofer/udacitydeeplearning:latest > ~/docker/image.tar
+            - run: |
+                docker run -d jonathanschmalhofer/udacitydeeplearning:latest; sleep 10
+                mkdir -p ~/my_workspace/src
+                cd ~/my_workspace/src
+                git clone https://github.com/JonathanSchmalhofer/octomap_catkin_gtest.git
+                cd ~/my_workspace
+            - run: |
+                docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+                docker push jonathanschmalhofer/udacitydeeplearning:latest
