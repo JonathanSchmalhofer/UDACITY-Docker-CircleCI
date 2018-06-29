@@ -32,10 +32,10 @@ RUN cd ~/udacity/CarND-Term1-Starter-Kit && ls
 # Replace 'carnd-term1' with 'carnd-term1-cpu' ...
 # ... and '0.12.1' with '1.8.0' ...
 # ... and '1.2.1' with '2.1.6'
-RUN sed -i 's/carnd-term1/carnd-term1-cpu/g' environment.yml
-RUN sed -i 's/0.12.1/1.8.0/g' environment.yml
-RUN sed -i 's/1.2.1/2.1.6/g' environment.yml
+RUN sed -i "s/carnd-term1/carnd-term1-cpu/g" ~/udacity/CarND-Term1-Starter-Kit/environment.yml
+RUN sed -i "s/0.12.1/1.8.0/g" ~/udacity/CarND-Term1-Starter-Kit/environment.yml
+RUN sed -i "s/1.2.1/2.1.6/g" ~/udacity/CarND-Term1-Starter-Kit/environment.yml
 
-RUN conda env create -f environment.yml
+RUN conda env create -f ~/udacity/CarND-Term1-Starter-Kit/environment.yml
 RUN conda info --envs
 RUN conda clean -tp
