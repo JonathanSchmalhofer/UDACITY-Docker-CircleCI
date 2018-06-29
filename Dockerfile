@@ -27,7 +27,7 @@ RUN echo "source $HOME/udacity/miniconda/bin/activate" >> ~/.bashrc
 RUN source ~/.bashrc
 
 RUN git clone https://github.com/udacity/CarND-Term1-Starter-Kit.git ~/udacity/CarND-Term1-Starter-Kit
-RUN cd ~/udacity/CarND-Term1-Starter-Kit
+RUN cd ~/udacity/CarND-Term1-Starter-Kit && ls
 
 # Replace 'carnd-term1' with 'carnd-term1-cpu' ...
 # ... and '0.12.1' with '1.8.0' ...
