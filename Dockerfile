@@ -26,8 +26,8 @@ RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh &
 RUN echo "source $HOME/udacity/miniconda/bin/activate" >> ~/.bashrc
 RUN source ~/.bashrc
 
-RUN git clone https://github.com/udacity/CarND-Term1-Starter-Kit.git
-RUN cd CarND-Term1-Starter-Kit
+RUN git clone https://github.com/udacity/CarND-Term1-Starter-Kit.git ~/udacity/CarND-Term1-Starter-Kit
+RUN cd ~/udacity/CarND-Term1-Starter-Kit
 
 # Replace 'carnd-term1' with 'carnd-term1-cpu' ...
 # ... and '0.12.1' with '1.8.0' ...
