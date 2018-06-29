@@ -26,6 +26,8 @@ RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh &
 RUN echo "source $HOME/udacity/miniconda/bin/activate" >> ~/.bashrc
 RUN source ~/.bashrc
 
+RUN echo $PATH
+
 # Replace 'carnd-term1' with 'carnd-term1-cpu' ...
 # ... and '0.12.1' with '1.8.0' ...
 # ... and '1.2.1' with '2.1.6'
@@ -34,7 +36,7 @@ RUN cd ~/udacity/CarND-Term1-Starter-Kit && \
     sed -i "s/carnd-term1/carnd-term1-cpu/g" ~/udacity/CarND-Term1-Starter-Kit/environment.yml && \
     sed -i "s/0.12.1/1.8.0/g" ~/udacity/CarND-Term1-Starter-Kit/environment.yml && \
     sed -i "s/1.2.1/2.1.6/g" ~/udacity/CarND-Term1-Starter-Kit/environment.yml && \
-    source $HOME/udacity/miniconda/bin/activate && \
+    source ~/udacity/miniconda/bin/activate && \
     conda env create -f ~/udacity/CarND-Term1-Starter-Kit/environment.yml && \
     conda info --envs && \
     conda clean -tp && \
