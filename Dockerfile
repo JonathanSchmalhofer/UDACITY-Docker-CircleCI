@@ -39,4 +39,4 @@ RUN cd ~/udacity/CarND-Term1-Starter-Kit && \
     source ~/udacity/miniconda/bin/activate && \
     conda env create -f ~/udacity/CarND-Term1-Starter-Kit/environment.yml && \
     conda info --envs && \
-    conda clean -tp && \
+    conda clean -tp
