@@ -27,10 +27,10 @@ RUN echo "source $HOME/udacity/miniconda/bin/activate" >> ~/.bashrc
 RUN source ~/.bashrc
 
 RUN git clone https://github.com/udacity/CarND-Term1-Starter-Kit.git && \
-    cd CarND-Term1-Starter-Kit
+RUN cd CarND-Term1-Starter-Kit
 
 # Make copy of 'environment.yml'
-RUN mv environment.yml environment_cpu.yml
+RUN cp environment.yml environment_cpu.yml
 # Replace 'carnd-term1' with 'carnd-term1-cpu' ...
 # ... and '0.12.1' with '1.8.0' ...
 # ... and '1.2.1' with '2.1.6'
