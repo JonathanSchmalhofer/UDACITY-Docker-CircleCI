@@ -43,9 +43,9 @@ RUN cd ~/udacity/CarND-Term1-Starter-Kit && \
     conda env create -f ~/udacity/CarND-Term1-Starter-Kit/environment.yml && \
     conda info --envs && \
     conda activate carnd-term1-cpu && \
-    conda remove opencv && \
+    conda remove opencv3 && \
     conda update conda && \
-    conda install --channel loopbio --channel conda-forge --channel pkgw-forge gtk2 ffmpeg ffmpeg-feature gtk2-feature opencv && \
+    conda install --channel loopbio --channel conda-forge --channel pkgw-forge gtk2 ffmpeg ffmpeg-feature gtk2-feature opencv3 && \
     conda clean -tp
 
 RUN apt-get update
