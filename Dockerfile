@@ -46,7 +46,7 @@ RUN cd ~/udacity/CarND-Term1-Starter-Kit && \
     conda list && \
     conda remove opencv3 && \
     conda list && \
-    conda install --channel loopbio --channel conda-forge --channel --channel menpo pkgw-forge gtk2 ffmpeg ffmpeg-feature gtk2-feature opencv3 && \
+    conda install --channel loopbio --channel conda-forge --channel menpo pkgw-forge gtk2 ffmpeg ffmpeg-feature gtk2-feature opencv3 && \
     conda list && \
     conda clean -tp
 
