@@ -6,6 +6,7 @@ RUN apt-get update
 RUN apt-get install -y git
 RUN apt-get install -y libgtk2.0-dev
 RUN apt-get install -y pkg-config
+RUN apt-get install -y libopenblas-dev
 
 # install dependencies for building packages
 RUN apt-get install -y python-wstool build-essential
@@ -46,7 +47,7 @@ RUN cd ~/udacity/CarND-Term1-Starter-Kit && \
     conda list && \
     conda remove opencv3 && \
     conda list && \
-    conda install --channel loopbio --channel conda-forge --channel menpo pkgw-forge gtk2 ffmpeg ffmpeg-feature gtk2-feature opencv3 && \
+    conda install --channel loopbio --channel conda-forge --channel menpo --channel pkgw-forge gtk2 ffmpeg ffmpeg-feature gtk2-feature opencv3 && \
     conda list && \
     conda clean -tp
 
