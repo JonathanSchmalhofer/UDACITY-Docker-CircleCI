@@ -16,5 +16,11 @@ jobs:
                 docker run -d jonathanschmalhofer/udacitydeeplearning:latest /bin/bash -c "source ~/udacity/miniconda/bin/activate; conda activate carnd-term1-cpu; conda list; echo 'import cv2' > test_environment.py; python test_environment.py" > ./dockerrun.log 2>&1
                 cat ./dockerrun.log
             - run: |
+                mkdir /tmp/artifacts
+                ulimit -c unlimited
+                docker save jonathanschmalhofer/udacitydeeplearning:latest > /tmp/artifacts/deeplearning.docker.bin
+            - run: |
                 docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
                 docker push jonathanschmalhofer/udacitydeeplearning:latest
+            - store_artifacts:
+                path: /tmp/artifacts
