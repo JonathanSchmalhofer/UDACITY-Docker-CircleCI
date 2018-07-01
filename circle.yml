@@ -16,5 +16,12 @@ jobs:
                 git clone https://github.com/JonathanSchmalhofer/octomap_catkin_gtest.git
                 cd ~/my_workspace
             - run: |
+                docker run -d jonathanschmalhofer/udacitydeeplearning:latest; sleep 10
+                source ~/udacity/miniconda/bin/activate && \
+                conda activate carnd-term1-cpu && \
+                conda list && \
+                echo "import cv2" > test_environment.py && \
+                python test_environment.py
+            - run: |
                 docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
                 docker push jonathanschmalhofer/udacitydeeplearning:latest
