@@ -31,6 +31,30 @@ RUN source ~/.bashrc
 
 RUN echo $PATH
 
+
+# Install Bazel for Building Tensorflow
+# See: https://docs.bazel.build/versions/master/install-ubuntu.html
+RUN apt-get install pkg-config zip g++ zlib1g-dev unzip python
+RUN apt-get install openjdk-8-jdk
+RUN echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list
+RUN curl https://bazel.build/bazel-release.pub.gpg | apt-key add -
+RUN apt-get update
+RUN apt-get install bazel
+RUN apt-get upgrade bazel
+
+# Get Tensorflow 1.8 Sources
+# See: https://www.tensorflow.org/install/install_sources
+RUN git clone https://github.com/tensorflow/tensorflow.git ~/udacity/tensorflow
+RUN cd ~/udacity/tensorflow
+RUN git checkout r1.8
+
+# Build Tensorflow
+RUN apt-get install python3-numpy python3-dev python3-pip python3-wheel
+RUN cd ~/udacity/tensorflow 
+
+
+
+
 # Replace 'carnd-term1' with 'carnd-term1-cpu' ...
 # ... and '0.12.1' with '1.8.0' ...
 # ... and '1.2.1' with '2.1.6'
