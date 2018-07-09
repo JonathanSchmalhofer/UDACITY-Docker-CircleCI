@@ -44,13 +44,10 @@ RUN apt-get upgrade -y bazel
 
 # Get Tensorflow 1.8 Sources
 # See: https://www.tensorflow.org/install/install_sources
-RUN git clone https://github.com/tensorflow/tensorflow.git ~/udacity/tensorflow
-RUN cd ~/udacity/tensorflow
-RUN git checkout r1.8
+RUN git clone -b r1.8 --single-branch https://github.com/tensorflow/tensorflow.git ~/udacity/tensorflow
 
 # Build Tensorflow
-RUN apt-get install python3-numpy python3-dev python3-pip python3-wheel
-RUN cd ~/udacity/tensorflow 
+RUN apt-get install -y python3-numpy python3-dev python3-pip python3-wheel
 
 
 
