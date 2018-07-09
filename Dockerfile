@@ -34,13 +34,13 @@ RUN echo $PATH
 
 # Install Bazel for Building Tensorflow
 # See: https://docs.bazel.build/versions/master/install-ubuntu.html
-RUN apt-get install pkg-config zip g++ zlib1g-dev unzip python
-RUN apt-get install openjdk-8-jdk
+RUN apt-get install -y pkg-config zip g++ zlib1g-dev unzip python
+RUN apt-get install -y openjdk-8-jdk
 RUN echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list
 RUN curl https://bazel.build/bazel-release.pub.gpg | apt-key add -
 RUN apt-get update
-RUN apt-get install bazel
-RUN apt-get upgrade bazel
+RUN apt-get install -y bazel
+RUN apt-get upgrade -y bazel
 
 # Get Tensorflow 1.8 Sources
 # See: https://www.tensorflow.org/install/install_sources
