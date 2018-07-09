@@ -18,6 +18,26 @@ RUN apt-get install -y tar
 RUN apt-get install -y sed
 RUN apt-get update
 
+# Install Miniconda and CarND-Term1-Starter-Kit
+# Instructions see: https://github.com/udacity/CarND-Term1-Starter-Kit/blob/master/doc/configure_via_anaconda.md
+RUN mkdir -p ~/udacity && \
+    cd ~/udacity
+RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
+    bash Miniconda3-latest-Linux-x86_64.sh -b -p $HOME/udacity/miniconda && \
+    export PATH="$HOME/udacity/miniconda/bin:$PATH"
+
+RUN echo "source $HOME/udacity/miniconda/bin/activate" >> ~/.bashrc
+RUN source ~/.bashrc
+
+RUN echo $PATH
+
+
+
+
+
+
+
+
 
 
 
@@ -36,7 +56,7 @@ RUN apt-get upgrade -y bazel
 RUN git clone -b r1.8 --single-branch https://github.com/tensorflow/tensorflow.git ~/udacity/tensorflow
 
 # Build Tensorflow
-RUN apt-get install -y python3-numpy python3-dev python3-pip python3-wheel
+RUN apt-get install -y python3-numpy python3-dev python3-pip python3-wheel python-numpy python-dev python-pip python-wheel
 
 # See: https://github.com/tensorflow/tensorflow/issues/7843
 RUN cd ~/udacity/tensorflow && \
@@ -49,18 +69,11 @@ RUN cd ~/udacity/tensorflow && \
 
 
 
-# Install Miniconda and CarND-Term1-Starter-Kit
-# Instructions see: https://github.com/udacity/CarND-Term1-Starter-Kit/blob/master/doc/configure_via_anaconda.md
-RUN mkdir -p ~/udacity && \
-    cd ~/udacity
-RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
-    bash Miniconda3-latest-Linux-x86_64.sh -b -p $HOME/udacity/miniconda && \
-    export PATH="$HOME/udacity/miniconda/bin:$PATH"
 
-RUN echo "source $HOME/udacity/miniconda/bin/activate" >> ~/.bashrc
-RUN source ~/.bashrc
 
-RUN echo $PATH
+
+
+
 
 # Replace 'carnd-term1' with 'carnd-term1-cpu' ...
 # ... and '0.12.1' with '1.8.0' ...
